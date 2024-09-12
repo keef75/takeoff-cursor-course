@@ -1,7 +1,14 @@
 import Image from "next/image";
 import { useState } from "react";
 
-export default function ApiKeyDisplay({ apiKey, companyInfo }) {
+interface CompanyInfo {
+  companyLogo?: File;
+  companyName: string;
+  companyAddress: string;
+  companyContact: string;
+}
+
+export default function ApiKeyDisplay({ apiKey, companyInfo }: { apiKey: string; companyInfo: CompanyInfo }) {
   const [copied, setCopied] = useState(false);
 
   const copyApiKey = () => {
